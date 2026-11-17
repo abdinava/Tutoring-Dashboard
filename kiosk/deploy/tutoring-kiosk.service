@@ -1,0 +1,19 @@
+# Starts the kiosk on the desktop at boot and restarts it if it stops.
+[Unit]
+Description=ULA tutoring check-in kiosk
+After=graphical.target network-online.target
+
+[Service]
+User=neftali
+SupplementaryGroups=input
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/neftali/.Xauthority
+EnvironmentFile=/home/neftali/.config/tutoring-kiosk/kiosk.env
+WorkingDirectory=/home/neftali/tutoring-checkin/kiosk
+ExecStart=/home/neftali/tutoring-checkin/kiosk/.venv/bin/python -m tutoring_kiosk.app
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=graphical.target

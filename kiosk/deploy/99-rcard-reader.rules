@@ -1,0 +1,3 @@
+# ID Tech TM3 card reader (0acd:0520): let the "input" group read it (no sudo)
+# and give it a fixed name, /dev/rcard-reader.
+SUBSYSTEM=="input", KERNEL=="event*", ATTRS{idVendor}=="0acd", ATTRS{idProduct}=="0520", SYMLINK+="rcard-reader", GROUP="input", MODE="0660"

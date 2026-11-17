@@ -1,0 +1,17 @@
+[tool.pytest.ini_options]
+pythonpath = ["kiosk", "relay"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py37"   # the Pi may run an older Python
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "S"]   # S = security rules
+ignore = ["S101", "B008"]            # assert in tests; FastAPI Depends()
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "tutoring_kiosk"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S105"]   # fake tokens in tests
