@@ -68,7 +68,6 @@ python -m tutoring_kiosk.app --simulate
 
 ## Rules
 
-- Keep this repo **private**.
 - Never commit `.env` files, `.json` keys, or real student data (`.gitignore` blocks them).
 - Never log student IDs, names, or swipe data.
 - Commit each small working change; CI runs lint and tests on every push.
